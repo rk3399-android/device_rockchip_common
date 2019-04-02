@@ -805,7 +805,7 @@ PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
 
 # Add runtime resource overlay for framework-res
 # TODO disable for box
-ifeq ($(filter atv box, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
+ifeq ($(filter atv box car, $(strip $(TARGET_BOARD_PLATFORM_PRODUCT))), )
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 endif
@@ -857,6 +857,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 else ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),laptop)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.target.product=laptop
+else ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT),car)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.target.product=car
 else
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.target.product=tablet

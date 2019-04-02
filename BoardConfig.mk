@@ -32,7 +32,11 @@ else
 ifneq ($(filter %vr, $(TARGET_PRODUCT)), )
 TARGET_BOARD_PLATFORM_PRODUCT ?= vr
 else
+ifneq ($(filter %car, $(TARGET_PRODUCT)), )
+TARGET_BOARD_PLATFORM_PRODUCT ?= car
+else
 TARGET_BOARD_PLATFORM_PRODUCT ?= tablet
+endif
 endif
 endif
 
